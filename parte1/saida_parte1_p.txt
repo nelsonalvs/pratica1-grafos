@@ -1,0 +1,4 @@
+﻿ALGORITMO: Dijkstra
+JUSTIFICATIVA: Todos os pesos das arestas sao nao negativos, portanto Dijkstra e aplicavel e encontra o menor caminho de forma eficiente.
+ROTA: 0 1 3 4
+CUSTO: 7
