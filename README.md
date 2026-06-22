@@ -10,7 +10,7 @@ O trabalho está dividido em duas partes:
 O trabalho está dividido entre os três integrantes da equipe:
 
 - **Nelson Alves** - Parte 1: roteamento com Dijkstra e Bellman-Ford
-- **Francys Samuel** - Parte 2: coloração gulosa para o grafo pequeno
+- **Francys Samuel Oliveira** - Parte 2: coloração gulosa para o grafo pequeno
 - **Lucas Fernando** - Parte 2: coloração DSatur para o grafo médio
 
 ---
