@@ -7,9 +7,10 @@ O trabalho está dividido em duas partes:
 - `parte1/`: roteamento em rede de backbone.
 - `parte2/`: alocação de canais Wi-Fi.
 
-Nesta entrega, foi desenvolvida a **Parte 1**, responsável por encontrar o caminho de menor custo entre dois roteadores em grafos direcionados com pesos.
+O trabalho está dividido entre os dois integrantes da equipe:
 
-A Parte 2 será desenvolvida pelo outro integrante da dupla.
+- **Nelson Alves** — Parte 1: roteamento com Dijkstra e Bellman-Ford
+- **Samuel** — Parte 2: coloração gulosa para o grafo pequeno
 
 ---
 
@@ -26,7 +27,12 @@ pratica1-grafos/
 │   ├── saida_parte1_p.txt
 │   └── saida_parte1_m.txt
 └── parte2/
-    └── .gitkeep
+    ├── coloracao_guloso.py
+    ├── coloracao_dsatur.py
+    ├── grafo_wifi_p.txt
+    ├── grafo_wifi_m.txt
+    ├── saida_parte2_p.txt
+    └── saida_parte2_m.txt
 ```
 
 ---
@@ -105,20 +111,80 @@ CUSTO: 6
 
 ---
 
-## Observação sobre a Parte 2
+---
 
-A Parte 2, referente à coloração de grafos para alocação de canais Wi-Fi, será implementada pelo outro integrante da dupla.
+## Parte 2 – Alocação de Canais Wi-Fi
 
-Quando a Parte 2 for adicionada, o README deve ser atualizado com:
+A rede Wi-Fi é representada como um grafo não-direcionado sem pesos.
 
-- algoritmo utilizado para coloração;
-- justificativa da escolha;
-- instruções de execução;
-- arquivos de saída da Parte 2.
+Cada vértice representa um ponto de acesso (AP) e cada aresta indica interferência mútua entre dois APs. APs adjacentes não podem usar o mesmo canal.
+
+O objetivo é colorir o grafo com o menor número possível de cores (número cromático).
+
+---
+
+## Algoritmos utilizados e justificativa
+
+### Grafo pequeno – `grafo_wifi_p.txt`
+
+Foi utilizado o algoritmo **Guloso**.
+
+O algoritmo percorre os vértices em ordem e atribui a cada um a menor cor que não conflite com os vizinhos já coloridos. Para o grafo pequeno, esse método encontra a solução ótima de forma simples e eficiente.
+
+### Grafo médio – `grafo_wifi_m.txt`
+
+Foi utilizado o algoritmo **DSatur**.
+
+O DSatur escolhe a cada passo o vértice com maior grau de saturação (número de cores distintas já usadas pelos vizinhos), produzindo colorações próximas ao ótimo sem backtracking exaustivo.
+
+---
+
+## Como executar a Parte 2
+
+É necessário ter o Python 3 instalado.
+
+### Grafo pequeno
+
+```bash
+python3 parte2/coloracao_guloso.py parte2/grafo_wifi_p.txt parte2/saida_parte2_p.txt
+```
+
+### Grafo médio
+
+```bash
+python3 parte2/coloracao_dsatur.py parte2/grafo_wifi_m.txt parte2/saida_parte2_m.txt
+```
+
+---
+
+## Saída esperada – grafo pequeno
+
+Arquivo gerado: `parte2/saida_parte2_p.txt`
+
+```txt
+ALGORITMO: Guloso
+JUSTIFICATIVA: O algoritmo guloso percorre os vertices em ordem e atribui a cada um a menor cor que nao conflite com seus vizinhos ja coloridos. E simples e eficiente, e produz resultado otimo para o grafo pequeno.
+NUM_CORES: 3
+COLORACAO: 0=1 1=2 2=3 3=1 4=2
+```
+
+---
+
+## Saída esperada – grafo médio
+
+Arquivo gerado: `parte2/saida_parte2_m.txt`
+
+```txt
+ALGORITMO: DSatur
+JUSTIFICATIVA: DSatur escolhe a cada passo o vertice nao colorido com maior grau de saturacao (numero de cores distintas ja usadas pelos seus vizinhos), produzindo coloracoes proximas ao otimo sem necessidade de backtracking exaustivo.
+NUM_CORES: 3
+COLORACAO: 0=1 1=2 2=3 3=1 4=2 5=1 6=2 7=1
+```
 
 ---
 
 ## Autoria
 
 - Nelson Alves
-- Samuel
+- Francys Samuel
+- Lucas Fernando
