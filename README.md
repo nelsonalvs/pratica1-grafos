@@ -176,8 +176,8 @@ COLORACAO: 0=1 1=2 2=3 3=1 4=2
 Arquivo gerado: `parte2/saida_parte2_m.txt`
 
 ```txt
-ALGORITMO: DSatur
-JUSTIFICATIVA: DSatur escolhe a cada passo o vertice nao colorido com maior grau de saturacao (numero de cores distintas ja usadas pelos seus vizinhos), produzindo coloracoes proximas ao otimo sem necessidade de backtracking exaustivo.
+ALGORITMO: DSatur com Backtracking Otimizado
+JUSTIFICATIVA: Utiliza DSatur como heuristica de ordenacao e limitante superior para um algoritmo de backtracking com poda. Garante a coloracao minima absoluta executando de forma eficiente mesmo em instancias maiores.
 NUM_CORES: 3
 COLORACAO: 0=1 1=2 2=3 3=1 4=2 5=1 6=2 7=1
 ```
