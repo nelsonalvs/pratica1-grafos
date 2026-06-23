@@ -1,0 +1,4 @@
+ALGORITMO: DSatur com Backtracking Otimizado
+JUSTIFICATIVA: Utiliza DSatur como heuristica de ordenacao e limitante superior para um algoritmo de backtracking com poda. Garante a coloracao minima absoluta executando de forma eficiente mesmo em instancias maiores.
+NUM_CORES: 3
+COLORACAO: 0=1 1=2 2=3 3=1 4=2
